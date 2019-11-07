@@ -29,6 +29,7 @@ function App() {
         })
         .then(response => {
           setPictures([...response.data.results]);
+          setPrevRefresh(false);
         })
         .catch(error => {
           console.log(error.message);
@@ -43,7 +44,7 @@ function App() {
       .get("https://api.unsplash.com/search/photos", {
         params: {
           query: term,
-          page: count,
+          // page: count,
           per_page: 12
         },
         headers: {
@@ -68,7 +69,7 @@ function App() {
       ? setCount(count + 1)
       : e.target.name === "decrement" && count > 1 && setCount(count - 1);
     setPrevRefresh(true);
-    console.log("clicked", count);
+    console.log("Page :", count);
   };
 
   return (
@@ -121,12 +122,24 @@ function App() {
       <div className="row d-flex flex-row flex-wrap justify-content-center m-auto">
         {pictures.length
           ? pictures.map(pic => (
-              <img
-                src={pic.urls.thumb}
-                alt={pic.id}
-                width="370px"
-                height="200px"
-              />
+              <div
+                className="card "
+                style={{
+                  width: "330px",
+                  height: "200px",
+                  backgroundColor: "rgba(0, 0, 0, 0.9)"
+                }}
+              >
+                <img
+                  src={pic.urls.thumb}
+                  alt={pic.id}
+                  className="card-img-top"
+                  height="120px"
+                />
+                <div style={{ opacity: "1" }} className="card-body text-white">
+                  {pic.created_at}
+                </div>
+              </div>
             ))
           : null}
       </div>
