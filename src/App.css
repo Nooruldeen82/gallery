@@ -1,6 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body {
-  background-color: #ad2f2f;
+  background-color: #830042;
 }
 .App {
   text-align: center;
+}
+
+.footer {
+  position: relative;
+  margin-top: 268px;
+  padding-top: 15px;
+  height: 100px;
+  clear: both;
 }
