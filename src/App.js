@@ -4,7 +4,7 @@ import "./App.css";
 function App() {
   const [term, setTerm] = useState("");
   const [pictures, setPictures] = useState([]);
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
   const changeHandler = e => {
     setTerm(e.target.value);
     console.log(term);
@@ -49,10 +49,12 @@ function App() {
       </div>
       <div className="row text-center">
         <div className="col-12 mt-2">
-          {/* <span className="text-white">Page :{count}</span> */}
           <button className="btn btn-primary" onClick={increment}>
-            Nest Page
+            Next Page
           </button>
+          <h3>
+            <span className="badge text-white bg-warning">Page :{count}</span>
+          </h3>
         </div>
       </div>
       <div className="row justify-content-center mt-5">
